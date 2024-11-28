@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Evolving Echoes{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+    <!-- Header Section with Navigation -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="/">Evolving Echoes</a>
+            </div>
+            <ul class="navbar">
+                <li><a href="/">Blog</a></li>
+                <li><a href="/about/">About</a></li> <!-- You can add more links here -->
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer (Optional) -->
+    <footer>
+        <p>&copy; 2024 Evolving Echoes. All rights reserved. "Becoming your best self, one day at a time."</p>
+    </footer>
+
+</body>
+</html>

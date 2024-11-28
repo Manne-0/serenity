@@ -1,0 +1,99 @@
+* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General body styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f7f7f7; /* Soft light background for a calming effect */
+    color: #333; /* Dark enough text for readability */
+}
+
+/* Header Styles */
+header {
+    background-color: #ffffff; /* Soft white background for header */
+    color: #333;
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+header .logo a {
+    color: #5e5c64; /* Soft muted color for the logo */
+    font-size: 36px;
+    text-decoration: none;
+    font-family: 'Lora', serif; /* Elegant font for the logo */
+    font-weight: 700;
+}
+
+header .navbar {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+
+header .navbar li {
+    display: inline;
+}
+
+header .navbar a {
+    color: #5e5c64; /* Soft muted color for links */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 300;
+    transition: color 0.3s ease;
+}
+
+header .navbar a:hover {
+    color: #8a8d85; /* Hover color to reflect growth */
+}
+
+/* Main Content Section */
+main {
+    padding: 40px 20px;
+}
+
+article {
+    background-color: #ffffff; /* Clean white background for posts */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+article h2 {
+    font-family: 'Lora', serif;
+    font-size: 28px;
+    color: #333;
+}
+
+article p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666; /* Muted color for body text */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+}
