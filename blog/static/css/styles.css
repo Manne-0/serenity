@@ -5,11 +5,13 @@
     box-sizing: border-box;
 }
 
+
 /* General body styles */
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: #f7f7f7; /* Soft light background for a calming effect */
     color: #333; /* Dark enough text for readability */
+    zoom: 0.7;
 }
 
 /* Header Styles */
@@ -96,4 +98,43 @@ footer {
 footer p {
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
+}
+
+/* Add this to your base.css or in a <style> tag in home.html */
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.post-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.post-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.post-image {
+    width: 100%;
+    height: 250px;  /* You can adjust the height here */
+    object-fit: contain; /* Ensures the entire image is displayed without cropping */
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.post-card h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.post-card p {
+    font-size: 0.9rem;
+    color: #666;
 }
