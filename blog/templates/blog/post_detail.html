@@ -11,7 +11,7 @@
             <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 100%; height: auto;">
         {% endif %}
         <article>
-            {{ post.content|safe }}
+            {{ post.content|linebreaks }}
         </article>
         <a href="/">Back to Home</a>
     </main>
