@@ -15,7 +15,7 @@ My Blog
                 <h3>{{ post.title }}</h3>
             </a>
             <p>{{ post.date_created }}</p>
-            <p>{{ post.summary }}</p>
+            <p>{{ post.summary|linebreaks }}</p>
         </div>
     {% empty %}
         <p>No posts available.</p>

@@ -2,17 +2,30 @@
 
 
 {% block content %}
-    <header>
+<article>
+    <!-- <header class="article-header"> -->
         <h1>{{ post.title }}</h1>
         <!-- <p>Posted on: {{ post.date_created }}</p> -->
-    </header>
-    <main>
+    <!-- </header> -->
+    <!-- <main> -->
         {% if post.image %}
             <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 100%; height: auto;">
         {% endif %}
-        <article>
             {{ post.content|linebreaks }}
-        </article>
-        <a href="/">Back to Home</a>
-    </main>
+    <!-- </main> -->
+    {% if post.youtube_link and post.song_title %}
+        <h3>Song of the Day: {{ post.song_title }}</h3>
+        <p>{{ post.song_message }}</p>
+            <div style="margin: 20px 0;">
+            <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/{{ post.youtube_link|slice:'-11:' }}" 
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+            </div>
+            <p><em>Let’s have a beautiful day, a beautiful life.</em></p>
+            {% endif %}
+</article>
+<a href="/">Back to Home</a>
+ 
 {% endblock %}
