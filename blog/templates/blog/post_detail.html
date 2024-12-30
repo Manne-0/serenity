@@ -11,7 +11,7 @@
         {% if post.image %}
             <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 100%; height: auto;">
         {% endif %}
-            {{ post.content|linebreaks }}
+            {{ post.content|safe }}
     <!-- </main> -->
     {% if post.youtube_link and post.song_title %}
         <h3>Song of the Day: {{ post.song_title }}</h3>
