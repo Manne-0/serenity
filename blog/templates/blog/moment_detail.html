@@ -1,0 +1,69 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h2>{{ moment.title }}</h2>
+<p>{{ moment.description }}</p>
+<p>Date: {{ moment.date_created }}</p>
+
+<div class="media-grid">
+    {% for media in media_list %}
+    <div class="media-item" onclick="openMediaViewer({{ forloop.counter0 }})">
+        {% if media.is_video %}
+        <video src="{{ media.file.url }}" class="media-thumb"></video>
+        {% else %}
+        <img src="{{ media.file.url }}" class="media-thumb" alt="Moment Media">
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Modal Viewer -->
+<div id="mediaViewer" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeMediaViewer()">&times;</span>
+        <div id="mediaContainer"></div>
+        <button class="nav-button prev" onclick="navigateMedia(-1)">&#8592; Previous</button>
+        <button class="nav-button next" onclick="navigateMedia(1)">Next &#8594;</button>
+    </div>
+</div>
+
+<script>
+    let mediaIndex = 0;
+    const mediaList = [
+        {% for media in media_list %}
+        {
+            url: "{{ media.file.url }}",
+            type: "{% if media.is_video %}video{% else %}image{% endif %}"
+        },
+        {% endfor %}
+    ];
+
+    function openMediaViewer(index) {
+        mediaIndex = index;
+        document.getElementById('mediaViewer').style.display = 'flex';
+        updateMediaViewer();
+    }
+
+    function closeMediaViewer() {
+        document.getElementById('mediaViewer').style.display = 'none';
+    }
+
+    function navigateMedia(direction) {
+        mediaIndex = (mediaIndex + direction + mediaList.length) % mediaList.length;
+        updateMediaViewer();
+    }
+
+    function updateMediaViewer() {
+        const media = mediaList[mediaIndex];
+        const mediaContainer = document.getElementById('mediaContainer');
+
+        if (media.type === 'video') {
+            mediaContainer.innerHTML = `<video src="${media.url}" controls class="media-full"></video>`;
+        } else {
+            mediaContainer.innerHTML = `<img src="${media.url}" class="media-full" alt="Media">`;
+        }
+    }
+</script>
+
+<a href="{% url 'moments_list' %}">Back to Moments</a>
+{% endblock %}

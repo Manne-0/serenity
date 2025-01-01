@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h2>Moments</h2>
+<div class="media-grid">
+    {% for moment in moments %}
+    <div class="moment-card">
+        <a href="{% url 'moment_detail' moment.id %}">
+            {% if moment.media.first %}
+            <img src="{{ moment.media.first.file.url }}" alt="{{ moment.title }}">
+            {% else %}
+            <img src="/static/images/placeholder.jpg" alt="Placeholder">
+            {% endif %}
+            <h3>{{ moment.title }}</h3>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

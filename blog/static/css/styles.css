@@ -11,6 +11,10 @@ body {
     font-family: 'Open Sans', sans-serif;
     background-color: #f7f7f7; /* Soft light background for a calming effect */
     color: #333; /* Dark enough text for readability */
+    display: flex;
+    flex-direction: column; /* Stack main and footer */
+    min-height: 100vh; /* Ensure body covers full viewport height */
+    margin: 0; /* Remove default body margin */
     zoom: 0.85;
 }
 
@@ -145,16 +149,13 @@ footer {
     color: white;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    width: 100%; /* Ensure the footer spans the full width */
 }
 
 footer p {
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
 }
-
 /* Add this to your base.css or in a <style> tag in home.html */
 
 
@@ -164,4 +165,128 @@ iframe {
     height: 315px;
     display: block;
     margin: 0 auto;
+}
+
+/* .media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.media-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.media-video, .media-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.media-viewer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+.media-nav {
+    margin-top: 16px;
+}
+
+.nav-button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: #555;
+} */
+
+/* Grid Styling */
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.media-grid img,
+.media-grid video {
+    width: 100%; /* Let the grid container control the width */
+    height: 100px; /* Consistent height for all items */
+    object-fit: cover; /* Ensure proper scaling without distortion */
+    border-radius: 5px; /* Optional: Rounded corners */
+}
+.media-item img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.modal-content {
+    position: relative;
+    max-width: 80%;
+    max-height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.media-full {
+    max-width: 100%;
+    max-height: 80vh;
+}
+.nav-button {
+    margin: 10px;
+    padding: 10px;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.nav-button:hover {
+    background: #ddd;
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.media-full {
+    max-width: 90%; /* Keep both video and image proportional */
+    max-height: 80vh; /* Ensure it doesn't overflow the screen height */
+    display: block;
+    margin: 0 auto; /* Center the media */
+    object-fit: contain; /* Ensure it scales properly without distortion */
 }
