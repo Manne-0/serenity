@@ -6,7 +6,7 @@ My Blog
 
 {% block content %}
 
-<h2>Recent Posts</h2>
+<!-- <h2>Recent Posts</h2>
 <div class="post-grid">
     {% for post in posts %}
         <div class="post-card">
@@ -20,6 +20,45 @@ My Blog
     {% empty %}
         <p>No posts available.</p>
     {% endfor %}
+</div> -->
+
+<h2>Recent Blog Posts</h2>
+<div class="recent-posts-grid">
+    {% for post in recent_posts %}
+    <div class="post-item">
+        {% if post.image %}
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+        {% endif %}
+        <div class="post-content">
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.summary}}</p>
+            <a href="{% url 'post_detail' post.id %}" class="btn">Read More</a>
+        </div>
+    </div>
+    {% empty %}
+    <p>No recent blog posts available.</p>
+    {% endfor %}
 </div>
+
+<h2>Recent Moments</h2>
+<div class="recent-moments-grid">
+    {% for moment in recent_moments %}
+    <div class="moment-item">
+        {% if moment.media.first %}
+            <img src="{{ moment.media.first.file.url }}" alt="{{ moment.title }}" class="post-image">
+            {% else %}
+            <img src="/static/images/placeholder.jpg" alt="Placeholder">
+            {% endif %}
+        <div class="moment-content">
+            <h3>{{ moment.title }}</h3>
+            <p>{{ moment.description }}</p>
+            <a href="{% url 'moment_detail' moment.id %}" class="btn">View More</a>
+        </div>
+    </div>
+    {% empty %}
+    <p>No recent moments available.</p>
+    {% endfor %}
+</div>
+
 {% endblock %}
 

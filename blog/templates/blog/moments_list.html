@@ -2,9 +2,9 @@
 
 {% block content %}
 <h2>Moments</h2>
-<div class="media-grid">
+<div class="post-grid">
     {% for moment in moments %}
-    <div class="moment-card">
+    <div class="post-card">
         <a href="{% url 'moment_detail' moment.id %}">
             {% if moment.media.first %}
             <img src="{{ moment.media.first.file.url }}" alt="{{ moment.title }}">
@@ -13,6 +13,8 @@
             {% endif %}
             <h3>{{ moment.title }}</h3>
         </a>
+        <!-- <p>{{ post.date_created }}</p> -->
+        <p>{{ moment.description|linebreaks }}</p>
     </div>
     {% endfor %}
 </div>

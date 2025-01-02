@@ -6,8 +6,9 @@ from django.shortcuts import get_object_or_404
 
 # Create your views here.
 def home(request):
-    posts = Post.objects.all().order_by('-date_created')
-    return render(request, 'blog/home.html', {'posts': posts})
+    recent_posts = Post.objects.order_by('date_created')[:3]  # Get the 3 most recent blog posts
+    recent_moments = Moment.objects.order_by('date_created')[:3]  # Get the 3 most recent moments
+    return render(request, 'blog/home.html', {'recent_posts': recent_posts, 'recent_moments': recent_moments})
 
 
 def post_detail(request, post_id):
