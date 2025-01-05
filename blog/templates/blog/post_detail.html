@@ -13,19 +13,25 @@
         {% endif %}
             {{ post.content|safe }}
     <!-- </main> -->
-    {% if post.youtube_link and post.song_title %}
-        <h3>Song of the Day: {{ post.song_title }}</h3>
-        <p>{{ post.song_message }}</p>
-            <div style="margin: 20px 0;">
-            <iframe width="560" height="315" 
+    {% if post.song_title %}
+    <h3>Song of the Day: {{ post.song_title }}</h3>
+    {{ post.song_message|safe}}
+    
+    {% if post.youtube_link %}
+        <div style="margin: 20px 0;">
+            <iframe 
+                width="560" 
+                height="315" 
                 src="https://www.youtube.com/embed/{{ post.youtube_link|slice:'-11:' }}" 
-                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowfullscreen>
             </iframe>
-            </div>
-            <p><em>Let’s have a beautiful day, a beautiful life.</em></p>
-            {% endif %}
+        </div>
+    {% endif %}
+    
+    <p><em>Let’s have a beautiful day, a beautiful life.</em></p>
+{% endif %}
 </article>
 <a href="/">Back to Home</a>
- 
 {% endblock %}
